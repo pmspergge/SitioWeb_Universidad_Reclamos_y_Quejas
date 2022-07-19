@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600;700;800;900&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Montserrat Alternates', sans-serif;
+  background-color: #f3f8fb;
+}
+.App{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+#main{
+  flex-grow: 2;
+}
