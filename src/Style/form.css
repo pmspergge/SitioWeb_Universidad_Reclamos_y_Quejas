@@ -32,7 +32,7 @@
   border-radius: 3px;
   border: none;
   color: white;
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   transition: .3s ease;
 }
 .container-form-date-per input:focus{
@@ -59,7 +59,7 @@
   background: #f4153a;
   color: white;
   border: none;
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   cursor: pointer;
   border-radius: 3px;
   font-size: 16px;
