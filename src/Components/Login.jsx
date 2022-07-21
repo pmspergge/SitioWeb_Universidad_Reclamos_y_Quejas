@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 export default function Login() {
   return (
     <div className="container-form">
       <form className="container-form-main">
         <div className="container-form-information">
-          <h1 className="title-form">Login Usuario</h1>
+          <h1 className="title-form">Iniciar Sesión</h1>
           <div className="container-form-details-person">
             <div className="container-form-date-per">
               <label htmlFor="inputEmail">Correo electrónico</label>
@@ -30,5 +30,5 @@ export default function Login() {
         </div>
       </form>
     </div>
-  )
+  );
 }

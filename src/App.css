@@ -1,19 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap');
-*{
+
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-body{
+
+body {
   font-family: 'Open Sans', sans-serif;
-  background: rgb(45,27,57);
-  background: linear-gradient(90deg, rgba(45,27,57,1) 0%, rgba(115,85,130,1) 100%);
+  background: rgb(45, 27, 57);
+  background: linear-gradient(90deg, rgba(45, 27, 57, 1) 0%, rgba(115, 85, 130, 1) 100%);
+  margin: 0 auto;
 }
-.App{
+
+.App {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-.main{
+
+.main {
   flex-grow: 2;
 }
