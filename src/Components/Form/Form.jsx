@@ -1,5 +1,5 @@
 import React from "react";
-import "../Style/form.css";
+import "./form.css";
 export default function Form() {
   return (
     <div className="container-form">

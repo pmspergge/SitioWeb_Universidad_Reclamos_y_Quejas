@@ -1,7 +1,7 @@
 import LayoutMain from "./Layout/LayoutMain";
-import Form from "./Components/Form";
-import Login from "./Components/Login";
-import Main from "./Components/Main"
+import Form from "./Components/Form/Form";
+import Login from "./Components/Login/Login";
+import Main from "./Components/Main/Main"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 function App() {

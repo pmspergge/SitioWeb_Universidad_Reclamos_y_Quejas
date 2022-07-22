@@ -8,9 +8,8 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background: rgb(45, 27, 57);
-  background: linear-gradient(90deg, rgba(45, 27, 57, 1) 0%, rgba(115, 85, 130, 1) 100%);
   margin: 0 auto;
+  background-image: linear-gradient(to right, #520aa0 0%, #1268fc 100%);
 }
 
 .App {
@@ -20,5 +19,8 @@ body {
 }
 
 .main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-grow: 2;
 }
