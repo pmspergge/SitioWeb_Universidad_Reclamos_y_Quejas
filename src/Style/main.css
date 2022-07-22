@@ -26,6 +26,8 @@
   text-align: justify;
 }
 
+
+
 @media screen and (max-width: 1700px) {
   .container_information_principal {
     background-position: 50%;
@@ -53,4 +55,8 @@
   }
 }
 
-@media screen and (max-width: 530px) {}
+@media screen and (max-width: 530px) {
+  .title_principal .description_principal {
+    max-width: 300px;
+  }
+}
