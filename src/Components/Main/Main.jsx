@@ -1,11 +1,13 @@
 import React from "react";
 import ImagenPrincipal from "../../images/imagenMain.svg";
-import "./main.css"
+import "./main.css";
 export default function Main() {
   return (
     <div className="container_information_principal">
       <div className="container_text_description">
-        <h1 className="title_principal">Sistema de gestión de reclamos y quejas</h1>
+        <h1 className="title_principal">
+          Sistema de gestión de reclamos y quejas
+        </h1>
         <p className="description_principal">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi vel
           dolorum exercitationem aliquam rerum ex deleniti nesciunt eveniet ab
