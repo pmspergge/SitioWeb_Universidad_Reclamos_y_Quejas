@@ -8,7 +8,7 @@ export default function LayoutMain() {
       <Header></Header>
       <main className="main">
         <div className="container_main">
-          <Outlet></Outlet>
+          <Outlet />
         </div>
       </main>
     </>
