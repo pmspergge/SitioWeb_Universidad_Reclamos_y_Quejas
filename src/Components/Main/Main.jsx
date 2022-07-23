@@ -25,7 +25,7 @@ export default function Main() {
         </div>
         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
           <img
-            class="img-fluid"
+            className="img-fluid"
             src={ImagenPrincipal}
             alt="Imagen principal"
             title="Presentación"
