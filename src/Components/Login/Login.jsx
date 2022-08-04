@@ -11,21 +11,34 @@ export default function Login() {
   useEffect(() => {
     emailRef.current.focus();
   }, []);
+
   useEffect(() => {
     setErrMsg("");
   }, [email, pwd]);
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!email || !pwd){
-      setErrMsg("Entradas inválidas")
-      // errRef.current.focus();
-      return      
+    if (!email || !pwd) {
+      setErrMsg("Entradas inválidas");
+      return;
     }
   };
   return (
     <div className="container-form">
       <form className="container-form-main" onSubmit={handleSubmit}>
         <div className="container-form-information">
+          {errMsg ? (
+            <p
+              className="container_msg_error"
+              ref={errRef}
+              aria-live="assertive"
+            >
+              <span>&#128226; </span>
+              {errMsg}
+            </p>
+          ) : (
+            ""
+          )}
           <h1 className="title-form">Iniciar Sesión</h1>
           <div className="container-form-details-person">
             <div className="container-form-date-per">
