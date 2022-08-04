@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./form.css";
-import "./checkbox.css"
+import "./checkbox.css";
 // REGEX
 const EMAIL_REGEX = /\S+@\S+\.\S+/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -10,6 +10,7 @@ export default function Form() {
 
   const [name, setName] = useState("");
   const [lastname, setLastName] = useState("");
+  const [errMsg, setErrMsg] = useState("");
 
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(false);
@@ -35,12 +36,25 @@ export default function Form() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     console.log(name, lastname, email, pwd);
   };
   return (
     <div className="container-form">
       <form className="container-form-main" onSubmit={handleSubmit}>
         <div className="container-form-information">
+          {errMsg ? (
+            <p
+              className="container_msg_error"
+              ref={errRef}
+              aria-live="assertive"
+            >
+              <span>&#128226; </span>
+              {errMsg}
+            </p>
+          ) : (
+            ""
+          )}
           <h1 className="title-form">Crear una cuenta</h1>
           <div className="container-form-details-person">
             <div className="container-form-date-per container-input-duo">
@@ -128,7 +142,7 @@ export default function Form() {
           <div className="container_condition_validate">
             <div className="item">
               <div className="toggle-rect-dark">
-                <input type="checkbox" required id="rect4"/>
+                <input type="checkbox" required id="rect4" />
                 <label htmlFor="rect4"></label>
               </div>
             </div>
