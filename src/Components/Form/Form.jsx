@@ -23,20 +23,29 @@ export default function Form() {
   useEffect(() => {
     nameRef.current.focus();
   }, []);
+
   useEffect(() => {
     const result = EMAIL_REGEX.test(email);
     console.log("email" + result);
     setValidEmail(result);
   }, [email]);
+  
   useEffect(() => {
     const result = PWD_REGEX.test(pwd);
     console.log("pwd" + result);
     setValidPwd(result);
   }, [pwd]);
-
+  
+  useEffect(() => {
+    setErrMsg("");
+  }, [email, pwd]);
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    if (!email || !pwd || !name || !lastname) {
+      setErrMsg("Entradas inválidas");
+      return;
+    }
     console.log(name, lastname, email, pwd);
   };
   return (
