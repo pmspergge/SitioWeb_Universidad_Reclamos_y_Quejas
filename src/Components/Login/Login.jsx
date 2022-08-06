@@ -15,8 +15,8 @@ export default function Login() {
   useEffect(() => {
     setErrMsg("");
   }, [email, pwd]);
-  
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !pwd) {
       setErrMsg("Entradas inválidas");
@@ -49,6 +49,7 @@ export default function Login() {
                 placeholder="Ingresa tu correo"
                 required
                 ref={emailRef}
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -59,6 +60,7 @@ export default function Login() {
                 id="inputPass"
                 placeholder="Ingresa tu contraseña"
                 required
+                value={pwd}
                 onChange={(e) => setPwd(e.target.value)}
               />
             </div>
