@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useRef, useState, useEffect } from "react";
+import useAuth from "../../hooks/useAuth";
+
 import axios from "../../api/axios";
 const LOGIN_URL = "/auth";
+
 export default function Login() {
+  const { setAuth } = useAuth();
+
   const emailRef = useRef();
   const errRef = useRef();
 
@@ -34,7 +39,7 @@ export default function Login() {
         }
       );
       console.log(JSON.stringify(response));
-      // setAuth({ user, pwd, roles, accessToken });
+      setAuth({ user, pwd, roles, accessToken });
       setUser("");
       setPwd("");
     } catch (err) {
