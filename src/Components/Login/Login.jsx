@@ -1,5 +1,7 @@
 import React from "react";
 import { useRef, useState, useEffect } from "react";
+import axios from "../../api/axios";
+const LOGIN_URL = "/auth";
 export default function Login() {
   const emailRef = useRef();
   const errRef = useRef();
@@ -22,23 +24,48 @@ export default function Login() {
       setErrMsg("Entradas inválidas");
       return;
     }
+    try {
+      const response = await axios.post(
+        LOGIN_URL,
+        JSON.stringify({ user: email, pwd }),
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+      console.log(JSON.stringify(response));
+      // setAuth({ user, pwd, roles, accessToken });
+      setUser("");
+      setPwd("");
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg("No Server Response");
+      } else if (err.response?.status === 400) {
+        setErrMsg("Missing Username or Password");
+      } else if (err.response?.status === 401) {
+        setErrMsg("Unauthorized");
+      } else {
+        setErrMsg("Login Failed");
+      }
+      errRef.current.focus();
+    }
   };
   return (
     <div className="container-form">
       <form className="container-form-main" onSubmit={handleSubmit}>
         <div className="container-form-information">
-          {errMsg ? (
-            <p
-              className="container_msg_error"
-              ref={errRef}
-              aria-live="assertive"
-            >
-              <span>&#128226; </span>
-              {errMsg}
-            </p>
-          ) : (
-            ""
-          )}
+          <p
+            className={
+              errMsg
+                ? "container_msg_error msg_err_active"
+                : "container_msg_error"
+            }
+            ref={errRef}
+            aria-live="assertive"
+          >
+            <span>&#128226; </span>
+            {errMsg}
+          </p>
           <h1 className="title-form">Iniciar Sesión</h1>
           <div className="container-form-details-person">
             <div className="container-form-date-per">
