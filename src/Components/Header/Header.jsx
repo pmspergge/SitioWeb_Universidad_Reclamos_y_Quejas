@@ -5,13 +5,19 @@ function Header() {
   return (
     <header className="header">
       <div className="container_logo">
-        <Link to="/" className="link_logo">
+        <div className="container_logo_image">
           <img src={Logo} alt="Logo" title="Inicio" />
-        </Link>
+        </div>
+        <div className="container_logo_title">
+          <p className="title_logo_text">UNIVERSITY</p>
+        </div>
       </div>
       <div className="container_navegation">
         <nav>
           <ul>
+            <li>
+              <Link to="/">Inicio</Link>
+            </li>
             <li>
               <Link to="/login">Iniciar Sesión</Link>
             </li>
