@@ -83,13 +83,18 @@
   color: rgba(245, 245, 245, 0.425);
 }
 .container_msg_error {
+  display: none;
   padding: 10px;
   background-color: #ef233bc5;
   margin: 0 auto;
-  width: max-content;
   border-radius: 5px;
   text-align: center;
   margin-bottom: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.msg_err_active{
+  display: block;
 }
 /* medias queries */
 /* Extra small devices (phones, 600px and down) */

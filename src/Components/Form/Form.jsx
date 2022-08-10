@@ -3,6 +3,10 @@ import "./form.css";
 // REGEX
 const EMAIL_REGEX = /\S+@\S+\.\S+/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+
+import axios from "../../api/axios";
+const REGISTER_URL = "/register";
+
 export default function Form() {
   const nameRef = useRef();
   const errRef = useRef();
@@ -25,44 +29,74 @@ export default function Form() {
 
   useEffect(() => {
     const result = EMAIL_REGEX.test(email);
-    console.log("email" + result);
     setValidEmail(result);
   }, [email]);
-  
+
   useEffect(() => {
     const result = PWD_REGEX.test(pwd);
-    console.log("pwd" + result);
     setValidPwd(result);
   }, [pwd]);
-  
+
   useEffect(() => {
     setErrMsg("");
-  }, [email, pwd]);
-  
+  }, [name, lastname, email, pwd]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email || !pwd || !name || !lastname) {
+    if (
+      !email ||
+      !pwd ||
+      !name ||
+      !lastname ||
+      !EMAIL_REGEX.test(email) ||
+      !PWD_REGEX.test(pwd)
+    ) {
       setErrMsg("Entradas inválidas");
       return;
     }
     console.log(name, lastname, email, pwd);
+
+    try {
+      const response = await axios.post(
+        REGISTER_URL,
+        JSON.stringify({ user: email, pwd }),
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+      console.log(response);
+      //clear state and controlled inputs
+      setUser("");
+      setPwd("");
+      setMatchPwd("");
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg("No Server Response");
+      } else if (err.response?.status === 409) {
+        setErrMsg("Username Taken");
+      } else {
+        setErrMsg("Registration Failed");
+      }
+      errRef.current.focus();
+    }
   };
   return (
     <div className="container-form" id="form_register">
       <form className="container-form-main" onSubmit={handleSubmit}>
         <div className="container-form-information">
-          {errMsg ? (
-            <p
-              className="container_msg_error"
-              ref={errRef}
-              aria-live="assertive"
-            >
-              <span>&#128226; </span>
-              {errMsg}
-            </p>
-          ) : (
-            ""
-          )}
+          <p
+            className={
+              errMsg
+                ? "container_msg_error msg_err_active"
+                : "container_msg_error"
+            }
+            ref={errRef}
+            aria-live="assertive"
+          >
+            <span>&#128226; </span>
+            {errMsg}
+          </p>
           <h1 className="title-form">Crear una cuenta</h1>
           <div className="container-form-details-person">
             <div className="container-form-date-per container-input-duo">
