@@ -46,7 +46,7 @@
 .container_navegation nav ul li{
   position: relative;
 }
-.container_navegation nav ul li:hover:after {
+.container_navegation nav ul li a:hover:after {
   content: "";
   display: block;
   position: absolute;
