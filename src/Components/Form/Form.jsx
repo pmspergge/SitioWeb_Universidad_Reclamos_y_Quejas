@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./form.css";
-import "./checkbox.css";
 // REGEX
 const EMAIL_REGEX = /\S+@\S+\.\S+/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -85,7 +84,7 @@ export default function Form() {
     }
   };
   return (
-    <div className="container-form">
+    <div className="container-form" id="form_register">
       <form className="container-form-main" onSubmit={handleSubmit}>
         <div className="container-form-information">
           <p
@@ -183,15 +182,6 @@ export default function Form() {
                 ""
               )}
             </div>
-          </div>
-          <div className="container_condition_validate">
-            <div className="item">
-              <div className="toggle-rect-dark">
-                <input type="checkbox" required id="rect4" />
-                <label htmlFor="rect4"></label>
-              </div>
-            </div>
-            <label htmlFor="rect4">Acepte los términos y condiciones.</label>
           </div>
           <div className="container-form-button-send">
             <button type="submit">Registrar</button>

@@ -1,34 +1,32 @@
 import React from "react";
-import ImagenPrincipal from "../../images/imagenMain.svg";
+import ImagenPrincipal from "../../images/image2.svg";
 import "./main.css";
 export default function Main() {
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
-          <h1 className="title_principal">
+      <div className="row d-flex justify-content-center">
+        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+          <h1 className="title_principal fw-bolder">
             Sistema de gestión de reclamos y quejas
           </h1>
           <p className="description_principal">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi vel
-            dolorum exercitationem aliquam rerum ex deleniti nesciunt eveniet ab
-            tenetur beatae reiciendis quae iste optio deserunt, omnis magnam
-            minus voluptatibus quas, ipsa dignissimos et dolore aspernatur?
-            Sapiente hic dolores incidunt quidem nam impedit consequatur magni
-            laboriosam culpa perferendis! Cumque beatae officiis inventore
-            numquam? Omnis laudantium possimus rerum velit, quis sit. Ducimus
-            nisi ea nobis eligendi maxime laborum dolorum saepe, mollitia quidem
-            minima unde hic illum rem quis ipsum aut libero, culpa accusantium,
-            necessitatibus quo. Doloremque quo fuga odit omnis quos! Fuga enim
-            reiciendis sit beatae laboriosam soluta quibusdam ea deleniti?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
+            doloremque suscipit facilis cupiditate esse repudiandae, quaerat
+            autem soluta doloribus eveniet saepe rem possimus dicta molestias
+            eligendi commodi cumque aliquid corrupti placeat alias qui illo
+            iusto repellendus vitae? Id sed illum dignissimos recusandae
+            consectetur sint aliquam est debitis, atque ipsum laudantium
+            voluptates minima nihil quae adipisci quia deserunt a quam,
+            cupiditate vel quod, veritatis quo! Distinctio quaerat vitae tempora
+            incidunt nobis.
           </p>
         </div>
-        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+        <div className="d-flex justify-content-center align-items-center col-xs-12 col-sm-10 col-md-10 col-lg-6 col-xl-6">
           <img
             className="img-fluid"
             src={ImagenPrincipal}
             alt="Imagen principal"
-            title="Presentación"
+            title="University"
           />
         </div>
       </div>
