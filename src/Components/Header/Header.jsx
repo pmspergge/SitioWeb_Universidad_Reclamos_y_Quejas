@@ -1,6 +1,6 @@
 import "./header.css";
 import Logo from "../../images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 function Header() {
   return (
     <header className="header">
@@ -16,13 +16,13 @@ function Header() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Inicio</Link>
+              <NavLink to="/">Inicio</NavLink>
             </li>
             <li>
-              <Link to="/login">Iniciar Sesión</Link>
+              <NavLink to="/login">Iniciar Sesión</NavLink>
             </li>
             <li>
-              <Link to="/form">Registrar</Link>
+              <NavLink to="/form">Registrar</NavLink>
             </li>
           </ul>
         </nav>
