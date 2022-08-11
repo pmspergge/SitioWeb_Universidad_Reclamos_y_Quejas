@@ -2,7 +2,7 @@ import React from "react";
 import { useRef, useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-
+import ROLES from "../../Roles/Roles";
 import axios from "../../api/axios";
 const LOGIN_URL = "/auth";
 
@@ -11,14 +11,12 @@ export default function Login() {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
   const emailRef = useRef();
   const errRef = useRef();
 
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
-
   useEffect(() => {
     emailRef.current.focus();
   }, []);
@@ -47,6 +45,14 @@ export default function Login() {
       setAuth({ user: email, pwd, roles, accessToken });
       setEmail("");
       setPwd("");
+
+      let urlPrincipate = "";
+      for (const prop in ROLES) {
+        if (ROLES[prop].clave === roles[0]) {
+          urlPrincipate = ROLES[prop].url;
+        }
+      }
+      const from = location.state?.from?.pathname || "/" + urlPrincipate;
       navigate(from, { replace: true });
     } catch (err) {
       if (!err?.response) {
