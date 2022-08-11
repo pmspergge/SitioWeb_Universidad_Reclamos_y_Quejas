@@ -40,11 +40,25 @@
   padding: 5px 10px;
   transition: 0.5s ease-in-out;
 }
-.container_navegation nav ul li a:hover{
+.container_navegation nav ul li a:hover {
   color: #f72585;
 }
-.container_navegation nav ul li{
+.container_navegation nav ul li {
   position: relative;
+}
+.container_navegation nav ul li a.active {
+  color: #f72585;
+}
+.container_navegation nav ul li a.active::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #f72585;
+  animation-name: sub_linear;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
 }
 .container_navegation nav ul li a:hover:after {
   content: "";
@@ -58,7 +72,7 @@
   animation-timing-function: ease-in-out;
 }
 @keyframes sub_linear {
-  0%{
+  0% {
     width: 0;
   }
   100% {
