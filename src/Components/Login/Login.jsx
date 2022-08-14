@@ -7,7 +7,7 @@ import axios from "../../api/axios";
 const LOGIN_URL = "/auth";
 
 export default function Login() {
-  const { auth, setAuth } = useAuth();
+  const { setAuth } = useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -24,7 +24,6 @@ export default function Login() {
   useEffect(() => {
     setErrMsg("");
   }, [email, pwd]);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !pwd) {
@@ -40,20 +39,24 @@ export default function Login() {
           withCredentials: true,
         }
       );
+      console.log(JSON.stringify(response?.data));
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
-      setAuth({ user: email, pwd, roles, accessToken });
+      setAuth({ user: email, roles, accessToken });
       setEmail("");
       setPwd("");
 
-      let urlPrincipate = "";
+      let urlP = "";
       for (const prop in ROLES) {
-        if (ROLES[prop].clave === roles[0]) {
-          urlPrincipate = ROLES[prop].url;
+        if (roles.includes(ROLES[prop].clave)){
+          urlP = ROLES[prop].url;
+          break
         }
       }
-      const from = location.state?.from?.pathname || "/" + urlPrincipate;
+
+      const from = location.state?.from?.pathname || `/${urlP}`;
       navigate(from, { replace: true });
+      
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No Server Response");

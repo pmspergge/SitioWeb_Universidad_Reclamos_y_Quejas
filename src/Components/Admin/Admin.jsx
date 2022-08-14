@@ -1,9 +1,21 @@
-import React from 'react'
-
+import React from "react";
+import Users from "./Users";
+import useLogout from "../../hooks/useLogout";
+import { useNavigate } from "react-router-dom";
 const Admin = () => {
-  return (
-    <div>Admin</div>
-  )
-}
+  const navigate = useNavigate();
+  const logout = useLogout();
 
-export default Admin
+  const signOut = async () => {
+    await logout();
+  };
+  return (
+    <>
+      <div>Admin</div>
+      <Users></Users>
+      <button onClick={signOut}>Cerrar sesión</button>
+    </>
+  );
+};
+
+export default Admin;
