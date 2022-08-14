@@ -66,10 +66,12 @@ export default function Form() {
         }
       );
       console.log(response);
-      //clear state and controlled inputs
-      setUser("");
+      //limpiar todos los inputs
+      setEmail("");
       setPwd("");
-      setMatchPwd("");
+      setName("");
+      setLastName("");
+      console.log("registrado correctamente")
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No Server Response");

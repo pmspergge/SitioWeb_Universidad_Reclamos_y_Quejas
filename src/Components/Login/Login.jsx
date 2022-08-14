@@ -1,20 +1,22 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useRef, useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
-
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import ROLES from "../../Roles/Roles";
 import axios from "../../api/axios";
 const LOGIN_URL = "/auth";
 
 export default function Login() {
-  const { setAuth } = useAuth();
+  const { auth, setAuth } = useAuth();
 
+  const navigate = useNavigate();
+  const location = useLocation();
   const emailRef = useRef();
   const errRef = useRef();
 
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
-
   useEffect(() => {
     emailRef.current.focus();
   }, []);
@@ -38,10 +40,20 @@ export default function Login() {
           withCredentials: true,
         }
       );
-      console.log(JSON.stringify(response));
-      setAuth({ user, pwd, roles, accessToken });
-      setUser("");
+      const accessToken = response?.data?.accessToken;
+      const roles = response?.data?.roles;
+      setAuth({ user: email, pwd, roles, accessToken });
+      setEmail("");
       setPwd("");
+
+      let urlPrincipate = "";
+      for (const prop in ROLES) {
+        if (ROLES[prop].clave === roles[0]) {
+          urlPrincipate = ROLES[prop].url;
+        }
+      }
+      const from = location.state?.from?.pathname || "/" + urlPrincipate;
+      navigate(from, { replace: true });
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No Server Response");
@@ -99,6 +111,8 @@ export default function Login() {
           </div>
           <div className="container-form-button-send">
             <button type="submit">Ingresar</button>
+            <Link to={"/user"}>User</Link>
+            <Link to={"/admin"}>Admin</Link>
           </div>
         </div>
       </form>
