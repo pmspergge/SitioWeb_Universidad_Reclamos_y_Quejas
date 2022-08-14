@@ -5,9 +5,9 @@ export default function Main() {
   return (
     <div className="container">
       <div className="row d-flex justify-content-center">
-        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <div className="d-flex flex-column justify-content-center col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
           <h1 className="title_principal fw-bolder">
-            Sistema de gestión de reclamos y quejas
+            Presenta tus reclamos y quejas
           </h1>
           <p className="description_principal">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
@@ -21,12 +21,11 @@ export default function Main() {
             incidunt nobis.
           </p>
         </div>
-        <div className="d-flex justify-content-center align-items-center col-xs-12 col-sm-10 col-md-10 col-lg-6 col-xl-6">
+        <div className="d-flex justify-content-center align-items-center col-xs-12 col-sm-10 col-md-10 col-lg-5 col-xl-5">
           <img
             className="img-fluid"
             src={ImagenPrincipal}
             alt="Imagen principal"
-            title="University"
           />
         </div>
       </div>
