@@ -1,6 +1,6 @@
 .header {
   color: white;
-  height: 130px;
+  height: 10vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,15 +10,18 @@
   display: flex;
   align-items: center;
 }
+.container_logo_title {
+  padding-left: 6.5%;
+}
 .title_logo_text {
   font-weight: 800;
-  font-size: x-large;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   letter-spacing: 3px;
-  padding: 0 15px;
   margin: 0;
 }
 .container_logo img {
-  height: 65px;
+  height: 8vw;
+  max-height: 65px;
 }
 .container_navegation nav ul {
   list-style: none;
@@ -79,9 +82,44 @@
     width: 100%;
   }
 }
+
+.container_button_toggle_menu {
+  display: none;
+}
+.container_button_toggle_menu button{
+  border: none;
+  background: none;
+  color: #1e1b18;
+}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  .container_button_toggle_menu {
+    display: block;
+  }
+  .container_navegation {
+    width: 100%;
+    top: 75px;
+    left: 100%;
+    position: fixed;
+    background-color: #1e1b18;
+    transition: 0.5s ease-in-out;
+    z-index: 1;
+  }
+  .container_navegation.active{
+    left: 0;
+  }
+  .container_navegation nav ul {
+    height: calc(100vh - 75px/2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 768px) {
   .header {
+    height: 75px;
     padding: 3%;
   }
   .container_navegation nav ul {
@@ -89,6 +127,6 @@
   }
   .container_navegation nav ul li a {
     font-size: 14px;
-    padding: 5px 10px;
+    padding: 2.5px 5px;
   }
 }

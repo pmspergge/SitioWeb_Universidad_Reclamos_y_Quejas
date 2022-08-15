@@ -1,7 +1,13 @@
 import "./header.css";
 import Logo from "../../images/logo.png";
 import { Link, NavLink } from "react-router-dom";
+import MenuButton from "./MenuButton";
+import { useState } from "react";
 function Header() {
+  const [open, setOpen] = useState(false);
+  const handleClick = () => {
+    setOpen(!open);
+  };
   return (
     <header className="header">
       <div className="container_logo">
@@ -12,7 +18,11 @@ function Header() {
           <p className="title_logo_text">UNIVERSITY</p>
         </div>
       </div>
-      <div className="container_navegation">
+      <div
+        className={
+          open ? "container_navegation active" : "container_navegation"
+        }
+      >
         <nav>
           <ul>
             <li>
@@ -26,6 +36,9 @@ function Header() {
             </li>
           </ul>
         </nav>
+      </div>
+      <div className="container_button_toggle_menu">
+        <MenuButton open={open} handleClick={handleClick}></MenuButton>
       </div>
     </header>
   );

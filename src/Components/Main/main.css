@@ -4,7 +4,7 @@
 .title_principal {
   color: white;
   text-transform: uppercase;
-  font-size: 50px;
+  font-size: clamp(16px, 10vw, 50px);
   margin-bottom: 20px;
   letter-spacing: 3px;
 }
@@ -14,7 +14,12 @@
   font-size: 18px;
   text-align: justify;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 576px) {
+  .container{
+    padding: 20px;
+  }
+}
+@media only screen and (max-width: 992px) {
   .title_principal{
     text-align: center;
   }
