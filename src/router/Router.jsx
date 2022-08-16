@@ -17,8 +17,8 @@ function Router() {
         <Route index element={<Main />}></Route>
         <Route path="login" element={<Login />}></Route>
         <Route path="form" element={<Form />}></Route>
-        <Route path="*" element={<Page_404 />}></Route>
       </Route>
+      <Route path="*" element={<Page_404 />}></Route>
 
       <Route path="/" element={<PersistLogin />}>
         <Route element={<RequireAuth allowedRoles={[ROLES.User.clave]} />}>
