@@ -8,7 +8,7 @@ import Admin from "../Components/Admin/Admin";
 import Unauthorized from "../Components/NotAuthorized/Unauthorized";
 import { Routes, Route } from "react-router-dom";
 import ROLES from "../Roles/Roles";
-import PersistLogin from "../Components/Login/PersistLogin";
+import PersistLogin from "../Persistence/PersistLogin";
 import Page_404 from "../Components/Pages/Page_404";
 function Router() {
   return (
@@ -19,6 +19,7 @@ function Router() {
         <Route path="form" element={<Form />}></Route>
         <Route path="*" element={<Page_404 />}></Route>
       </Route>
+
       <Route path="/" element={<PersistLogin />}>
         <Route element={<RequireAuth allowedRoles={[ROLES.User.clave]} />}>
           <Route path={ROLES.User.url} element={<User />}></Route>

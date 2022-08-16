@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./form.css";
+import Preloader from "../Preloader/Preloader";
 // REGEX
 const EMAIL_REGEX = /\S+@\S+\.\S+/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -10,6 +11,7 @@ const REGISTER_URL = "/register";
 export default function Form() {
   const nameRef = useRef();
   const errRef = useRef();
+  const [preloader, setPreloader] = useState(false);
 
   const [name, setName] = useState("");
   const [lastname, setLastName] = useState("");
@@ -43,6 +45,7 @@ export default function Form() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setPreloader(true);
     if (
       !email ||
       !pwd ||
@@ -71,16 +74,18 @@ export default function Form() {
       setPwd("");
       setName("");
       setLastName("");
-      console.log("registrado correctamente")
+      alert("Se registro el usuario")
     } catch (err) {
       if (!err?.response) {
-        setErrMsg("No Server Response");
+        setErrMsg("Sin respuesta del servidor");
       } else if (err.response?.status === 409) {
-        setErrMsg("Username Taken");
+        setErrMsg("El email ya se encuentra registrado");
       } else {
-        setErrMsg("Registration Failed");
+        setErrMsg("Registro fallido");
       }
       errRef.current.focus();
+    } finally {
+      setPreloader(false);
     }
   };
   return (
@@ -186,6 +191,7 @@ export default function Form() {
           <div className="container-form-button-send">
             <button type="submit">Registrar</button>
           </div>
+          {preloader && <Preloader></Preloader>}
         </div>
       </form>
     </div>

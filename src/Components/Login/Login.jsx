@@ -1,13 +1,15 @@
 import React from "react";
 import { useRef, useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import ROLES from "../../Roles/Roles";
 import axios from "../../api/axios";
+import Preloader from "../Preloader/Preloader";
 const LOGIN_URL = "/auth";
 
 export default function Login() {
   const { setAuth } = useAuth();
+  const [preloader, setPreloader] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -26,6 +28,10 @@ export default function Login() {
   }, [email, pwd]);
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // activar el preloader
+    setPreloader(true);
+
     if (!email || !pwd) {
       setErrMsg("Entradas inválidas");
       return;
@@ -48,26 +54,28 @@ export default function Login() {
 
       let urlP = "";
       for (const prop in ROLES) {
-        if (roles.includes(ROLES[prop].clave)){
+        if (roles.includes(ROLES[prop].clave)) {
           urlP = ROLES[prop].url;
-          break
+          break;
         }
       }
 
       const from = location.state?.from?.pathname || `/${urlP}`;
       navigate(from, { replace: true });
-      
     } catch (err) {
       if (!err?.response) {
-        setErrMsg("No Server Response");
+        setErrMsg("Sin respuesta del servidor");
       } else if (err.response?.status === 400) {
-        setErrMsg("Missing Username or Password");
+        setErrMsg("Falta nombre de usuario y contraseña");
       } else if (err.response?.status === 401) {
-        setErrMsg("Unauthorized");
+        setErrMsg("Vuelva a intentarlo");
       } else {
-        setErrMsg("Login Failed");
+        setErrMsg("Error de inicio de sesión");
       }
       errRef.current.focus();
+    } finally {
+      // desactivar el preloader
+      setPreloader(false);
     }
   };
   return (
@@ -114,9 +122,8 @@ export default function Login() {
           </div>
           <div className="container-form-button-send">
             <button type="submit">Ingresar</button>
-            <Link to={"/user"}>User</Link>
-            <Link to={"/admin"}>Admin</Link>
           </div>
+          {preloader && <Preloader></Preloader>}
         </div>
       </form>
     </div>
