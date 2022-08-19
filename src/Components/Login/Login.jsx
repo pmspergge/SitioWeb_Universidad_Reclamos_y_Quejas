@@ -12,7 +12,6 @@ export default function Login() {
   const [preloader, setPreloader] = useState(false);
 
   const navigate = useNavigate();
-  const location = useLocation();
   const emailRef = useRef();
   const errRef = useRef();
 
@@ -59,8 +58,7 @@ export default function Login() {
           break;
         }
       }
-
-      const from = location.state?.from?.pathname || `/${urlP}`;
+      const from = `/${urlP}`;
       navigate(from, { replace: true });
     } catch (err) {
       if (!err?.response) {
