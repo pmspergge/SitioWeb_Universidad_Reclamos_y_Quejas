@@ -1,11 +1,21 @@
 const ROLES = {
   User: {
     clave: 2001,
-    url: "user"
+    url: "user",
   },
   Admin: {
     clave: 5150,
-    url: "admin"
-  }
+    url: "admin",
+  },
 };
-export default ROLES
+export const searchRoles = (value) => {
+  let urlP = "";
+  for (const prop in ROLES) {
+    if (value.includes(ROLES[prop].clave)) {
+      urlP = `/${ROLES[prop].url}`;
+      break;
+    }
+  }
+  return urlP;
+};
+export default ROLES;

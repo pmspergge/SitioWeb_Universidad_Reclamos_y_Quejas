@@ -1,8 +1,8 @@
 import React from "react";
 import { useRef, useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
-import { useNavigate, useLocation } from "react-router-dom";
-import ROLES from "../../Roles/Roles";
+import { useNavigate } from "react-router-dom";
+import ROLES, { searchRoles } from "../../Roles/Roles";
 import axios from "../../api/axios";
 import Preloader from "../Preloader/Preloader";
 const LOGIN_URL = "/auth";
@@ -14,7 +14,6 @@ export default function Login() {
   const navigate = useNavigate();
   const emailRef = useRef();
   const errRef = useRef();
-
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
@@ -44,29 +43,20 @@ export default function Login() {
           withCredentials: true,
         }
       );
-      console.log(JSON.stringify(response?.data));
+      // console.log(JSON.stringify(response?.data));
+
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
       setAuth({ user: email, roles, accessToken });
       setEmail("");
       setPwd("");
 
-      let urlP = "";
-      for (const prop in ROLES) {
-        if (roles.includes(ROLES[prop].clave)) {
-          urlP = ROLES[prop].url;
-          break;
-        }
-      }
-      const from = `/${urlP}`;
-      navigate(from, { replace: true });
+      navigate(searchRoles(roles), { replace: true });
     } catch (err) {
       if (!err?.response) {
         setErrMsg("Sin respuesta del servidor");
-      } else if (err.response?.status === 400) {
-        setErrMsg("Falta nombre de usuario y contraseña");
       } else if (err.response?.status === 401) {
-        setErrMsg("Vuelva a intentarlo");
+        setErrMsg("Ingrese correctamente sus datos");
       } else {
         setErrMsg("Error de inicio de sesión");
       }
