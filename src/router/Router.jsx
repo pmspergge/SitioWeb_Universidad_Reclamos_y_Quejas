@@ -3,13 +3,23 @@ import Form from "../Components/Form/Form";
 import Login from "../Components/Login/Login";
 import Main from "../Components/Main/Main";
 import RequireAuth from "../Components/RequiretAuth/RequireAuth";
-import User from "../Components/User/User";
-import Admin from "../Components/Admin/Admin";
-import Unauthorized from "../Components/NotAuthorized/Unauthorized";
+import NotAuthorized from "../Components/NotAuthorized/NotAuthorized";
 import { Routes, Route } from "react-router-dom";
 import ROLES from "../Roles/Roles";
 import PersistLogin from "../Persistence/PersistLogin";
 import Page_404 from "../Components/Pages/Page_404";
+// routes user
+import LayoutUser from "../Layout/LayoutLogged/LayoutUser";
+import PrincipalUser from "../ViewsLogged/ViewsUser/PrincipalUser";
+import ReclamosAdmin from "../ViewsLogged/ViewsAdmin/ReclamosAdmin";
+import QuejasAdmin from "../ViewsLogged/ViewsAdmin/QuejasAdmin";
+// routes admin
+import LayoutAdmin from "../Layout/LayoutLogged/LayoutAdmin";
+import PrincipalAdmin from "../ViewsLogged/ViewsAdmin/PrincipalAdmin";
+import QuejasUser from "../ViewsLogged/ViewsUser/QuejasUser";
+import ReclamosUser from "../ViewsLogged/ViewsUser/ReclamosUser";
+
+import useAuth from "../hooks/useAuth";
 function Router() {
   return (
     <Routes>
@@ -19,15 +29,24 @@ function Router() {
         <Route path="form" element={<Form />}></Route>
       </Route>
       <Route path="*" element={<Page_404 />}></Route>
-
-      <Route path="/" element={<PersistLogin />}>
+      {/* user */}
+      <Route element={<PersistLogin />}>
         <Route element={<RequireAuth allowedRoles={[ROLES.User.clave]} />}>
-          <Route path={ROLES.User.url} element={<User />}></Route>
+          <Route path={ROLES.User.url} element={<LayoutUser />}>
+            <Route path="" element={<PrincipalUser />}></Route>
+            <Route path="reclamos" element={<ReclamosUser />}></Route>
+            <Route path="quejas" element={<QuejasUser />}></Route>
+          </Route>
         </Route>
+        {/* admin */}
         <Route element={<RequireAuth allowedRoles={[ROLES.Admin.clave]} />}>
-          <Route path={ROLES.Admin.url} element={<Admin />}></Route>
+          <Route path={ROLES.Admin.url} element={<LayoutAdmin />}>
+            <Route path="" element={<PrincipalAdmin />}></Route>
+            <Route path="reclamos" element={<ReclamosAdmin />}></Route>
+            <Route path="quejas" element={<QuejasAdmin />}></Route>
+          </Route>
         </Route>
-        <Route path="unauthorized" element={<Unauthorized />}></Route>
+        <Route path="notAuthorized" element={<NotAuthorized />}></Route>
       </Route>
     </Routes>
   );

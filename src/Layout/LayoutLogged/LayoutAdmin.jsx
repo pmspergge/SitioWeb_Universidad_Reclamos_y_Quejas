@@ -1,9 +1,10 @@
 import React from "react";
-import useLogout from "../../hooks/useLogout";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
-import "../Admin/admin.css";
-const User = () => {
+import useLogout from "../../hooks/useLogout";
+import "./styleLayout.css";
+import { Outlet } from "react-router-dom";
+const LayoutAdmin = () => {
   const [buttonToggle, setButtonToggle] = useState(false);
   const logout = useLogout();
 
@@ -13,9 +14,9 @@ const User = () => {
   return (
     <>
       <nav className="sb-topnav navbar navbar-expand navbar-dark">
-        <Link className="navbar-brand ps-3" to="index.html">
-          UNIVERSITY
-        </Link>
+        <div className="navbar-brand ps-3">
+          <span className="name-university">UNIVERSITY</span>
+        </div>
         <button
           className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
           id="sidebarToggle"
@@ -69,35 +70,62 @@ const User = () => {
             <div className="sb-sidenav-menu">
               <div className="nav">
                 <div className="sb-sidenav-menu-heading">Tablero</div>
-                <Link className="nav-link" to="index.html">
-                  <div className="sb-nav-link-icon">
-                    <i className="fas fa-tachometer-alt"></i>
+                <NavLink className="nav-link" to="" end>
+                  <div className="sb-nav-link-icon d-flex align-items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      className="bi bi-house-door-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z" />
+                    </svg>
                   </div>
                   PRINCIPAL
-                </Link>
+                </NavLink>
                 <div className="sb-sidenav-menu-heading">Opciones</div>
-                <Link className="nav-link collapsed" to="/reclamos.html">
-                  <div className="sb-nav-link-icon">
-                    <i className="fas fa-book-open"></i>
+                <NavLink className="nav-link collapsed" to="reclamos">
+                  <div className="sb-nav-link-icon d-flex align-items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      className="bi bi-folder-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3zm-8.322.12C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139z" />
+                    </svg>
                   </div>
                   RECLAMOS
                   <div className="sb-sidenav-collapse-arrow">
                     <i className="fas fa-angle-down"></i>
                   </div>
-                </Link>
-                <Link className="nav-link collapsed" to="/quejas.html">
-                  <div className="sb-nav-link-icon">
-                    <i className="fas fa-book-open"></i>
+                </NavLink>
+                <NavLink className="nav-link collapsed" to="quejas">
+                  <div className="sb-nav-link-icon d-flex align-items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      className="bi bi-chat-square-text-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.5a1 1 0 0 0-.8.4l-1.9 2.533a1 1 0 0 1-1.6 0L5.3 12.4a1 1 0 0 0-.8-.4H2a2 2 0 0 1-2-2V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z" />
+                    </svg>
                   </div>
                   QUEJAS
                   <div className="sb-sidenav-collapse-arrow">
                     <i className="fas fa-angle-down"></i>
                   </div>
-                </Link>
+                </NavLink>
               </div>
             </div>
             <div className="sb-sidenav-footer">
-              <div className="small">Usuario:</div>
+              <div className="small">Administrador:</div>
               Patrick Rios
             </div>
           </nav>
@@ -108,48 +136,7 @@ const User = () => {
         >
           <main>
             <div className="container-fluid px-4">
-              <h1 className="mt-4">PANEL PRINCIPAL</h1>
-              <ol className="breadcrumb mb-4">
-                <li className="breadcrumb-item active">
-                  Visualiza el estado general de los reclamos y quejas de los
-                  usuarios.
-                </li>
-              </ol>
-              <div className="row">
-                <div className="col-xl-3 col-md-6">
-                  <div className="card container-card text-white mb-4">
-                    <div className="card-body">Panel De Reclamos</div>
-                    <div className="card-footer d-flex align-items-center justify-content-between">
-                      <Link
-                        className="small text-white stretched-link"
-                        to="/reclamos.html"
-                      >
-                        Visualizar
-                      </Link>
-                      <div className="small text-white">
-                        <i className="fas fa-angle-right"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-3 col-md-6">
-                  <div className="card container-card text-white mb-4">
-                    <div className="card-body">Panel De Reclamos</div>
-                    <div className="card-footer d-flex align-items-center justify-content-between">
-                      <Link
-                        className="small text-white stretched-link"
-                        to="/reclamos.html"
-                      >
-                        Visualizar
-                      </Link>
-                      <div className="small text-white">
-                        <i className="fas fa-angle-right"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="mb-4">Tabla</div>
+              <Outlet />
             </div>
           </main>
         </div>
@@ -158,4 +145,4 @@ const User = () => {
   );
 };
 
-export default User;
+export default LayoutAdmin;

@@ -74,14 +74,14 @@ export default function Form() {
       setPwd("");
       setName("");
       setLastName("");
-      alert("Se registro el usuario")
+      alert("Se registro el usuario");
     } catch (err) {
       if (!err?.response) {
         setErrMsg("Sin respuesta del servidor");
       } else if (err.response?.status === 409) {
         setErrMsg("El email ya se encuentra registrado");
       } else {
-        setErrMsg("Registro fallido");
+        setErrMsg("El registro ha fallado");
       }
       errRef.current.focus();
     } finally {

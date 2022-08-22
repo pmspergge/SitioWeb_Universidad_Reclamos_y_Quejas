@@ -11,7 +11,7 @@ const Page_404 = () => {
         alt="Page 404"
         title="Page 404"
       />
-      <Link className="link_return" to="/">Volver a la página principal</Link>
+      <Link className="link_return" to={-1}>Volver Atrás</Link>
     </div>
   );
 };

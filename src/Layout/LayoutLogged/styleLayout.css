@@ -2172,7 +2172,6 @@ progress {
   .active-content {
     margin-left: -225px;
   }
-  
 }
 @media (max-width: 767.98px) {
   #layoutSidenav #layoutSidenav_content {
@@ -11960,7 +11959,7 @@ body {
   flex-wrap: nowrap;
 }
 .sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-heading {
-  padding: 1.75rem 1rem 0.75rem;
+  padding: 1.25rem 1rem;
   font-size: 0.75rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -12017,6 +12016,9 @@ body {
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link.active {
   color: #fff;
+  background-color: #8e20f5;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link.active .sb-nav-link-icon {
   color: #fff;
@@ -12217,4 +12219,8 @@ body {
 }
 .container-card {
   background-color: #8e20f5;
+}
+.name-university {
+  letter-spacing: 5px;
+  font-weight: 800;
 }
