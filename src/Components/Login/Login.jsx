@@ -2,7 +2,7 @@ import React from "react";
 import { useRef, useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import ROLES, { searchRoles } from "../../Roles/Roles";
+import { searchRoles } from "../../Roles/Roles";
 import axios from "../../api/axios";
 import Preloader from "../Preloader/Preloader";
 const LOGIN_URL = "/auth";
@@ -53,6 +53,7 @@ export default function Login() {
 
       navigate(searchRoles(roles), { replace: true });
     } catch (err) {
+      console.log(err)
       if (!err?.response) {
         setErrMsg("Sin respuesta del servidor");
       } else if (err.response?.status === 401) {
