@@ -1,14 +1,21 @@
 import React from "react";
-
+import FormQuejas from "../../Components/FormQuejas/FormQuejas";
 const QuejasUser = () => {
   return (
     <>
-      <h1 className="mt-4">PRESENTA TUS QUEJAS</h1>
-      <ol className="breadcrumb mb-4">
-        <li className="breadcrumb-item active">
-          Presenta tus quejas mediante el siguiente formulario.
-        </li>
-      </ol>
+      <div className="row my-2 shadow">
+        <FormQuejas />
+      </div>
+      <div className="row my-2 shadow">
+        <div className="card p-3">
+          <h2>TABLA DE LAS QUEJAS</h2>
+          <ol className="breadcrumb mb-4">
+            <li className="breadcrumb-item active">
+              Información de todas las quejas
+            </li>
+          </ol>
+        </div>
+      </div>
     </>
   );
 };

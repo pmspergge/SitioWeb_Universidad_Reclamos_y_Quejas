@@ -3,14 +3,18 @@ import FormReclamos from "../../Components/FormReclamos/FormReclamos";
 const ReclamosUser = () => {
   return (
     <>
-      <h1 className="mt-4">PRESENTA TUS RECLAMOS</h1>
-      <ol className="breadcrumb mb-4">
-        <li className="breadcrumb-item active">
-          Presenta tus reclamos mediante el siguiente formulario.
-        </li>
-      </ol>
-      <div className="row">
-        <FormReclamos/>
+      <div className="row my-2 shadow">
+        <FormReclamos />
+      </div>
+      <div className="row my-2 shadow">
+        <div className="card p-3">
+          <h2>TABLA DE RECLAMOS</h2>
+          <ol className="breadcrumb mb-4">
+            <li className="breadcrumb-item active">
+              Información de todos los reclamos.
+            </li>
+          </ol>
+        </div>
       </div>
     </>
   );
