@@ -53,24 +53,6 @@ const FormReclamos = () => {
             <div className="invalid-feedback">Se requiere apellido válido.</div>
           </div>
           <div className="col-12">
-            <label htmlFor="username" className="form-label">
-              Nombre de usuario
-            </label>
-            <div className="input-group has-validation">
-              <span className="input-group-text">@</span>
-              <input
-                type="text"
-                className="form-control"
-                id="username"
-                placeholder="Nombre de usuario"
-                required
-              />
-              <div className="invalid-feedback">
-                Tu nombre de usuario es requerido.
-              </div>
-            </div>
-          </div>
-          <div className="col-12">
             <label htmlFor="email" className="form-label">
               Correo electrónico
             </label>
@@ -133,12 +115,12 @@ const FormReclamos = () => {
               Documento de identificación requerido.
             </div>
           </div>
-          <div class="col-12">
-            <label for="exampleFormControlTextarea1" class="form-label">
+          <div className="col-12">
+            <label htmlFor="exampleFormControlTextarea1" className="form-label">
               Decripción del Reclamo
             </label>
             <textarea
-              class="form-control"
+              className="form-control"
               id="exampleFormControlTextarea1"
               rows="3"
               placeholder="Escribir..."

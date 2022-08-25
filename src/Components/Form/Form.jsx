@@ -9,12 +9,10 @@ import axios from "../../api/axios";
 const REGISTER_URL = "/register";
 
 export default function Form() {
-  const nameRef = useRef();
+  const emailRef = useRef();
   const errRef = useRef();
   const [preloader, setPreloader] = useState(false);
 
-  const [name, setName] = useState("");
-  const [lastname, setLastName] = useState("");
   const [errMsg, setErrMsg] = useState("");
 
   const [email, setEmail] = useState("");
@@ -26,7 +24,7 @@ export default function Form() {
   const [pwdFocus, setPwdFocus] = useState(false);
 
   useEffect(() => {
-    nameRef.current.focus();
+    emailRef.current.focus();
   }, []);
 
   useEffect(() => {
@@ -41,24 +39,15 @@ export default function Form() {
 
   useEffect(() => {
     setErrMsg("");
-  }, [name, lastname, email, pwd]);
+  }, [email, pwd]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setPreloader(true);
-    if (
-      !email ||
-      !pwd ||
-      !name ||
-      !lastname ||
-      !EMAIL_REGEX.test(email) ||
-      !PWD_REGEX.test(pwd)
-    ) {
+    if (!email || !pwd || !EMAIL_REGEX.test(email) || !PWD_REGEX.test(pwd)) {
       setErrMsg("Entradas inválidas");
       return;
     }
-    console.log(name, lastname, email, pwd);
-
     try {
       const response = await axios.post(
         REGISTER_URL,
@@ -72,8 +61,6 @@ export default function Form() {
       //limpiar todos los inputs
       setEmail("");
       setPwd("");
-      setName("");
-      setLastName("");
       alert("Se registro el usuario");
     } catch (err) {
       if (!err?.response) {
@@ -106,33 +93,6 @@ export default function Form() {
           </p>
           <h1 className="title-form">Crear una cuenta</h1>
           <div className="container-form-details-person">
-            <div className="container-form-date-per container-input-duo">
-              <div className="container-input-name">
-                <label htmlFor="inputName">Nombres</label>
-                <input
-                  type="text"
-                  id="inputName"
-                  ref={nameRef}
-                  placeholder="Tu nombre"
-                  required
-                  autoComplete="off"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </div>
-              <div className="container-input-lastname">
-                <label htmlFor="inputApellidos">Apellidos</label>
-                <input
-                  type="text"
-                  id="inputApellidos"
-                  placeholder="Tu apellido"
-                  required
-                  autoComplete="off"
-                  value={lastname}
-                  onChange={(e) => setLastName(e.target.value)}
-                />
-              </div>
-            </div>
             <div className="container-form-date-per">
               <label htmlFor="inputEmail">
                 Correo electrónico
@@ -148,6 +108,7 @@ export default function Form() {
                 aria-describedby="emailnote"
                 aria-invalid={validEmail ? "false" : "true"}
                 value={email}
+                ref={emailRef}
                 onChange={(e) => setEmail(e.target.value)}
                 onFocus={() => setEmailFocus(true)}
                 onBlur={() => setEmailFocus(false)}
@@ -186,6 +147,7 @@ export default function Form() {
               ) : (
                 ""
               )}
+              
             </div>
           </div>
           <div className="container-form-button-send">

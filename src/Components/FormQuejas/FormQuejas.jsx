@@ -44,12 +44,12 @@ const FormReclamos = () => {
               actualizaciones de envío.
             </div>
           </div>
-          <div class="col-12">
-            <label for="exampleFormControlTextarea1" class="form-label">
+          <div className="col-12">
+            <label htmlFor="exampleFormControlTextarea1" className="form-label">
               Descripción
             </label>
             <textarea
-              class="form-control"
+              className="form-control"
               id="exampleFormControlTextarea1"
               rows="3"
               placeholder="Escribir..."
