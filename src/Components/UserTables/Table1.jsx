@@ -10,29 +10,40 @@ const columns = [
     headerName: "ID",
     align: "center",
     headerAlign: "center",
-    minWidth: 100,
+    minWidth: 185,
     hideable: false,
   },
   {
-    field: "email",
-    headerName: "Correo Electrónico",
+    field: "fecha",
+    headerName: "Fecha",
     align: "left",
     headerAlign: "left",
     minWidth: 300,
+    hideable: false,
   },
   {
-    field: "lastName",
-    headerName: "Last name",
+    field: "tipo",
+    headerName: "Tipo",
     align: "center",
     headerAlign: "center",
-    minWidth: 170,
+    minWidth: 300,
+    hideable: false,
   },
   {
-    field: "age",
-    headerName: "Age",
+    field: "estado",
+    headerName: "Estado",
     align: "center",
     headerAlign: "center",
-    minWidth: 150,
+    minWidth: 300,
+    hideable: false,
+  },
+  {
+    field: "descripcion",
+    headerName: "Descripcion",
+    align: "center",
+    headerAlign: "center",
+    minWidth: 300,
+    hideable: false,
   },
 ];
 // PARA CAMBIAR DE IDIOMA
@@ -40,15 +51,76 @@ const theme = createTheme(esES);
 
 // PARA OPTENER DATOS
 const rows = [
-  { id: 1, lastName: "Snow", email: "Jon", age: 35 },
-  { id: 2, lastName: "Lannister", email: "Cersei", age: 42 },
-  { id: 3, lastName: "Lannister", email: "Jaime", age: 45 },
-  { id: 4, lastName: "Stark", email: "Arya", age: 16 },
-  { id: 5, lastName: "Targaryen", email: "Daenerys", age: null },
-  { id: 6, lastName: "Melisandre", email: null, age: 150 },
-  { id: 7, lastName: "Clifford", email: "Ferrara", age: 44 },
-  { id: 8, lastName: "Frances", email: "Rossini", age: 36 },
-  { id: 9, lastName: "Roxie", email: "Harvey", age: 65 },
+  {
+    id: 1,
+    fecha: "22/08/2022",
+    tipo: "Reclamo",
+    estado: "Rechazado",
+    descripcion: "Lorem Ipsum",
+  },
+  {
+    id: 2,
+    fecha: "22/08/2022",
+    tipo: "Queja",
+    estado: "Pendiente",
+    descripcion: "lorem",
+  },
+  {
+    id: 3,
+    fecha: "22/08/2022",
+    tipo: "Reclamo",
+    estado: "Finalizado",
+    descripcion: "lorem",
+  },
+  {
+    id: 4,
+    fecha: "22/08/2022",
+    tipo: "Reclamo",
+    estado: "Finalizado",
+    descripcion: "lorem",
+  },
+  {
+    id: 5,
+    fecha: "22/08/2022",
+    tipo: "Queja",
+    estado: "Pendiente",
+    descripcion: "lorem",
+  },
+  {
+    id: 6,
+    fecha: "22/08/2022",
+    tipo: "Queja",
+    estado: "Pendiente",
+    descripcion: "lorem",
+  },
+  {
+    id: 7,
+    fecha: "22/08/2022",
+    tipo: "Reclamo",
+    estado: "Rechazado",
+    descripcion: "lorem",
+  },
+  {
+    id: 8,
+    fecha: "22/08/2022",
+    tipo: "Queja",
+    estado: "Rechazado",
+    descripcion: "lorem",
+  },
+  {
+    id: 9,
+    fecha: "22/08/2022",
+    tipo: "Reclamo",
+    estado: "Finalizado",
+    descripcion: "lorem",
+  },
+  {
+    id: 10,
+    fecha: "22/08/2022",
+    tipo: "Reclamo",
+    estado: "Pendiente",
+    descripcion: "lorem",
+  },
 ];
 
 export default function StylingHeaderGrid() {
@@ -56,7 +128,7 @@ export default function StylingHeaderGrid() {
   return (
     <Box
       sx={{
-        height: 450,
+        height: 408,
         width: "100%",
       }}
     >
@@ -65,7 +137,7 @@ export default function StylingHeaderGrid() {
           components={{
             Toolbar: GridToolbar,
           }}
-          sx={{ my: 2 }}
+          sx={{ my: 5 }}
           rows={rows}
           columns={columns}
           pageSize={pageSize}
@@ -73,7 +145,6 @@ export default function StylingHeaderGrid() {
           rowsPerPageOptions={[5, 10, 20]}
           pagination
         />
-        {/* TODO: https://mui.com/x/react-data-grid/column-visibility/ */}
       </ThemeProvider>
     </Box>
   );
