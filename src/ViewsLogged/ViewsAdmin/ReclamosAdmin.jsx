@@ -1,11 +1,10 @@
 import React from "react";
-import TableReclamos from "../../Components/TablesAdmin/TableReclamos";
 const ReclamosAdmin = () => {
   return (
     <>
       <div className="d-grid gap-1 my-3">
         <h5 className="fw-bold">TABLA DE RECLAMOS</h5>
-        <TableReclamos />
+        tabla
       </div>
       <div
         className="modal fade"

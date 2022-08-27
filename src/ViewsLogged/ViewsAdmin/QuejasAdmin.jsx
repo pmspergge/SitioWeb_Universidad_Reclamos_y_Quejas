@@ -1,11 +1,10 @@
-import React from 'react'
-import TableQuejas from "../../Components/TablesAdmin/TableQuejas"
+import React from "react";
 const QuejasAdmin = () => {
   return (
     <>
       <div className="d-grid gap-1 my-3">
         <h5 className="fw-bold">TABLA DE QUEJA</h5>
-        <TableQuejas />
+        tabla
       </div>
       <div
         className="modal fade"
@@ -54,7 +53,7 @@ const QuejasAdmin = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default QuejasAdmin
+export default QuejasAdmin;

@@ -1,8 +1,7 @@
 import React from "react";
 import Card from "../../Components/Card/Card";
+import Table1 from "../../Components/UserTables/Table1";
 
-import TableBasic from "../../Components/TableComponent/TableBasic";
-import { StyledEngineProvider } from "@mui/material/styles";
 const PrincipalUser = () => {
   return (
     <>
@@ -12,7 +11,7 @@ const PrincipalUser = () => {
           Visualiza la información de tus reclamos y quejas.
         </li>
       </ol>
-      <div className="d-grid gap-1">
+      <div className="d-grid">
         <div className="row">
           <Card
             title="Tus reclamos"
@@ -51,11 +50,9 @@ const PrincipalUser = () => {
             }
           />
         </div>
-        <div className="row">
-          <StyledEngineProvider injectFirst>
-            <TableBasic></TableBasic>
-          </StyledEngineProvider>
-        </div>
+      </div>
+      <div className="d-grid">
+        <Table1 />
       </div>
     </>
   );
