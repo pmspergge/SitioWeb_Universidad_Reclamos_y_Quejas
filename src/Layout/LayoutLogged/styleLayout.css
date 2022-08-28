@@ -169,11 +169,6 @@ h6,
   font-size: 1rem;
 }
 
-p {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
 abbr[title],
 abbr[data-bs-original-title] {
   -webkit-text-decoration: underline dotted;
@@ -12016,7 +12011,7 @@ body {
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link.active {
   color: #fff;
-  background-color: #8e20f5;
+  background-color: #8e20f594;
   font-weight: 700;
   letter-spacing: 0.5px;
 }
@@ -12223,4 +12218,7 @@ body {
 .name-university {
   letter-spacing: 5px;
   font-weight: 800;
+}
+p{
+  margin: 0;
 }

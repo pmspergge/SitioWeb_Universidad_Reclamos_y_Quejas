@@ -3,7 +3,7 @@ import "./card.css";
 const Card = ({ title, cant, details, icon }) => {
   return (
     <div className="col-xl-3 col-md-6 container-card-info">
-      <div className="card prod-p-card bg-c-red">
+      <div className="card prod-p-card bg-c-red shadow-sm">
         <div className="card-body">
           <div className="row align-items-center m-b-25">
             <div className="col">

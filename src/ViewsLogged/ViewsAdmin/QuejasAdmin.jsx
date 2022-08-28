@@ -1,57 +1,33 @@
 import React from "react";
+import Card from "../../Components/Card/Card";
 const QuejasAdmin = () => {
   return (
     <>
-      <div className="d-grid gap-1 my-3">
-        <h5 className="fw-bold">TABLA DE QUEJA</h5>
-        tabla
-      </div>
-      <div
-        className="modal fade"
-        id="exampleModalScrollable"
-        aria-labelledby="exampleModalScrollableTitle"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-dialog-scrollable">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalScrollableTitle">
-                Descripción
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-              accusamus optio molestias ratione, fugiat natus rem quos
-              asperiores eos, aut laudantium! Alias nesciunt blanditiis possimus
-              molestiae reprehenderit ea nobis non, placeat libero totam
-              numquam, rerum assumenda minus amet sequi similique? Minima
-              aliquid laborum, fuga cupiditate recusandae, corrupti molestiae
-              maiores minus vel, explicabo perferendis? Eaque corrupti vitae
-              fugiat maiores eos, quisquam alias perferendis ducimus blanditiis
-              recusandae error necessitatibus et quos, quod quidem qui soluta?
-              Laboriosam nihil placeat corporis ducimus, facere maiores
-              cupiditate repudiandae quasi nostrum voluptas veniam et molestiae
-              accusamus architecto explicabo qui ad quisquam excepturi quibusdam
-              nesciunt nobis quia asperiores.
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Cerrar
-              </button>
-            </div>
+      <div className="d-grid gap-1 my-3 bg-white p-4 rounded">
+        <h5 className="fw-bold">INFORMACIÓN DE LAS QUEJAS</h5>
+        <div className="d-grid gap-1">
+          <div className="row">
+            <Card
+              title="Quejas Recibidas"
+              cant={12}
+              details={"Total de quejas"}
+              icon={
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="23"
+                  height="23"
+                  fill="currentColor"
+                  className="bi bi-envelope"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                </svg>
+              }
+            />
           </div>
         </div>
       </div>
+      <div className="d-grid gap-1 my-3 bg-white p-4 rounded">tabla</div>
     </>
   );
 };
