@@ -1,0 +1,13 @@
+.container-menu-lateral{
+  background-color: #26282e;
+}
+.container-layout-main{
+  background-color: #e9ecef;
+}
+.sb-sidenav-dark .sb-sidenav-menu .item-link.active{
+  background-color: #d11149;
+}
+.sb-sidenav-footer.container-user-admin-footer{
+  background-color: #15141a;
+  border-top: 2px solid white;
+}

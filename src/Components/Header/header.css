@@ -1,0 +1,132 @@
+.header {
+  color: white;
+  height: 10vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+}
+.container_logo {
+  display: flex;
+  align-items: center;
+}
+.container_logo_title {
+  padding-left: 6.5%;
+}
+.title_logo_text {
+  font-weight: 800;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  letter-spacing: 3px;
+  margin: 0;
+}
+.container_logo img {
+  height: 8vw;
+  max-height: 65px;
+}
+.container_navegation nav ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: 50px;
+  margin: 0;
+  padding: 0;
+}
+.container_navegation nav ul li {
+  padding: 0;
+}
+
+.container_navegation nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px 10px;
+  transition: 0.5s ease-in-out;
+}
+.container_navegation nav ul li a:hover {
+  color: #f72585;
+}
+.container_navegation nav ul li {
+  position: relative;
+}
+.container_navegation nav ul li a.active {
+  color: #f72585;
+}
+.container_navegation nav ul li a.active::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #f72585;
+  animation-name: sub_linear;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+.container_navegation nav ul li a:hover:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #f72585;
+  animation-name: sub_linear;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+@keyframes sub_linear {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.container_button_toggle_menu {
+  display: none;
+}
+.container_button_toggle_menu button{
+  border: none;
+  background: none;
+  color: #1e1b18;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .container_button_toggle_menu {
+    display: block;
+  }
+  .container_navegation {
+    width: 100%;
+    top: 75px;
+    left: 100%;
+    position: fixed;
+    background-color: #1e1b18;
+    transition: 0.5s ease-in-out;
+    z-index: 1;
+  }
+  .container_navegation.active{
+    left: 0;
+  }
+  .container_navegation nav ul {
+    height: calc(100vh - 75px/2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    height: 75px;
+    padding: 3%;
+  }
+  .container_navegation nav ul {
+    gap: 15px;
+  }
+  .container_navegation nav ul li a {
+    font-size: 14px;
+    padding: 2.5px 5px;
+  }
+}

@@ -1,0 +1,26 @@
+.container{
+  padding: 50px 0;
+}
+.title_principal {
+  color: white;
+  text-transform: uppercase;
+  font-size: clamp(16px, 12vw, 50px);
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+}
+
+.description_principal {
+  color: rgba(255, 255, 255, 0.795);
+  font-size: 18px;
+  text-align: justify;
+}
+@media only screen and (max-width: 576px) {
+  .container{
+    padding: 20px;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .title_principal{
+    text-align: center;
+  }
+}
