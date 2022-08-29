@@ -1,10 +1,13 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
-import useLogout from "../../hooks/useLogout";
-import "./styleLayout.css";
+import useLogout from "../../../hooks/useLogout";
+import "../styleLayout.css";
+import "./LayoutAdmin.css";
 import { Outlet } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 const LayoutAdmin = () => {
+  const { auth } = useAuth();
   const [buttonToggle, setButtonToggle] = useState(false);
   const logout = useLogout();
 
@@ -67,10 +70,10 @@ const LayoutAdmin = () => {
             className="sb-sidenav accordion sb-sidenav-dark"
             id="sidenavAccordion"
           >
-            <div className="sb-sidenav-menu">
+            <div className="sb-sidenav-menu container-menu-lateral">
               <div className="nav">
                 <div className="sb-sidenav-menu-heading">Tablero</div>
-                <NavLink className="nav-link" to="" end>
+                <NavLink className="nav-link item-link" to="" end>
                   <div className="sb-nav-link-icon d-flex align-items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -85,8 +88,9 @@ const LayoutAdmin = () => {
                   </div>
                   PRINCIPAL
                 </NavLink>
+
                 <div className="sb-sidenav-menu-heading">Opciones</div>
-                <NavLink className="nav-link collapsed" to="reclamos">
+                <NavLink className="nav-link item-link" to="reclamos">
                   <div className="sb-nav-link-icon d-flex align-items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -100,11 +104,8 @@ const LayoutAdmin = () => {
                     </svg>
                   </div>
                   RECLAMOS
-                  <div className="sb-sidenav-collapse-arrow">
-                    <i className="fas fa-angle-down"></i>
-                  </div>
                 </NavLink>
-                <NavLink className="nav-link collapsed" to="quejas">
+                <NavLink className="nav-link item-link" to="quejas">
                   <div className="sb-nav-link-icon d-flex align-items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -118,27 +119,26 @@ const LayoutAdmin = () => {
                     </svg>
                   </div>
                   QUEJAS
-                  <div className="sb-sidenav-collapse-arrow">
-                    <i className="fas fa-angle-down"></i>
-                  </div>
                 </NavLink>
               </div>
             </div>
-            <div className="sb-sidenav-footer">
+            <div className="sb-sidenav-footer container-user-admin-footer">
               <div className="small">Administrador:</div>
-              Patrick Rios
+              {auth.user}
             </div>
           </nav>
         </div>
         <div
           id="layoutSidenav_content"
-          className={buttonToggle ? "active-content" : undefined}
+          className={
+            buttonToggle
+              ? "container-layout-main active-content"
+              : "container-layout-main"
+          }
         >
-          <main>
-            <div className="container-fluid px-4">
-              <Outlet />
-            </div>
-          </main>
+          <div className="container-fluid px-4">
+            <Outlet />
+          </div>
         </div>
       </div>
     </>

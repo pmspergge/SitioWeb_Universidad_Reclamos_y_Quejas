@@ -10,15 +10,18 @@ export default function Main() {
             Presenta tus reclamos y quejas
           </h1>
           <p className="description_principal">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
-            doloremque suscipit facilis cupiditate esse repudiandae, quaerat
-            autem soluta doloribus eveniet saepe rem possimus dicta molestias
-            eligendi commodi cumque aliquid corrupti placeat alias qui illo
-            iusto repellendus vitae? Id sed illum dignissimos recusandae
-            consectetur sint aliquam est debitis, atque ipsum laudantium
-            voluptates minima nihil quae adipisci quia deserunt a quam,
-            cupiditate vel quod, veritatis quo! Distinctio quaerat vitae tempora
-            incidunt nobis.
+            A través del siguiente espacio usted podrá formular las peticiones,
+            quejas, reclamos o comentarios que tenga con respecto a una
+            determinada dependencia administrativa o unidad académica de la
+            Universidad del Kongo, conforme a lo establecido en la Resolución R-
+            141 de 2019, expedida por la Rectoría de la institución.<br></br> De
+            igual forma, la Resolución Rectoral N° 0246 de 2020 por medio del
+            cual se establece el trámite transitorio de Peticiones, Quejas,
+            Reclamos, Sugerencias y Felicitaciones durante la Emergencia
+            Económica, Social y Ecológica por el Coronavirus COVID – 19.
+            <br></br> La especificación de su nombre completo y de su correo
+            electrónico es obligatoria para que los funcionarios encargados de
+            darle trámite a sus comentarios, puedan atenderlo correctamente.
           </p>
         </div>
         <div className="d-flex justify-content-center align-items-center col-xs-12 col-sm-10 col-md-10 col-lg-5 col-xl-5">

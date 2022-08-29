@@ -14,12 +14,11 @@ import PrincipalUser from "../ViewsLogged/ViewsUser/PrincipalUser";
 import ReclamosAdmin from "../ViewsLogged/ViewsAdmin/ReclamosAdmin";
 import QuejasAdmin from "../ViewsLogged/ViewsAdmin/QuejasAdmin";
 // routes admin
-import LayoutAdmin from "../Layout/LayoutLogged/LayoutAdmin";
+import LayoutAdmin from "../Layout/LayoutLogged/LayoutAdmin/LayoutAdmin";
 import PrincipalAdmin from "../ViewsLogged/ViewsAdmin/PrincipalAdmin";
 import QuejasUser from "../ViewsLogged/ViewsUser/QuejasUser";
 import ReclamosUser from "../ViewsLogged/ViewsUser/ReclamosUser";
 
-import useAuth from "../hooks/useAuth";
 function Router() {
   return (
     <Routes>
