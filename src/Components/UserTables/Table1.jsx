@@ -3,132 +3,101 @@ import { Box } from "@mui/material";
 import { DataGrid, GridToolbar, esES } from "@mui/x-data-grid";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-// CABECERA DE LOS DATOS EDIT
-const columns = [
-  {
-    field: "id",
-    headerName: "ID",
-    align: "center",
-    headerAlign: "center",
-    minWidth: 185,
-    hideable: false,
-  },
-  {
-    field: "fecha",
-    headerName: "Fecha",
-    align: "left",
-    headerAlign: "left",
-    minWidth: 300,
-    hideable: false,
-  },
-  {
-    field: "tipo",
-    headerName: "Tipo",
-    align: "center",
-    headerAlign: "center",
-    minWidth: 300,
-    hideable: false,
-  },
-  {
-    field: "estado",
-    headerName: "Estado",
-    align: "center",
-    headerAlign: "center",
-    minWidth: 300,
-    hideable: false,
-  },
-  {
-    field: "descripcion",
-    headerName: "Descripcion",
-    align: "center",
-    headerAlign: "center",
-    minWidth: 300,
-    hideable: false,
-  },
-];
+
 // PARA CAMBIAR DE IDIOMA
 const theme = createTheme(esES);
 
-// PARA OPTENER DATOS
-const rows = [
-  {
-    id: 1,
-    fecha: "22/08/2022",
-    tipo: "Reclamo",
-    estado: "Rechazado",
-    descripcion: "Lorem Ipsum",
-  },
-  {
-    id: 2,
-    fecha: "22/08/2022",
-    tipo: "Queja",
-    estado: "Pendiente",
-    descripcion: "lorem",
-  },
-  {
-    id: 3,
-    fecha: "22/08/2022",
-    tipo: "Reclamo",
-    estado: "Finalizado",
-    descripcion: "lorem",
-  },
-  {
-    id: 4,
-    fecha: "22/08/2022",
-    tipo: "Reclamo",
-    estado: "Finalizado",
-    descripcion: "lorem",
-  },
-  {
-    id: 5,
-    fecha: "22/08/2022",
-    tipo: "Queja",
-    estado: "Pendiente",
-    descripcion: "lorem",
-  },
-  {
-    id: 6,
-    fecha: "22/08/2022",
-    tipo: "Queja",
-    estado: "Pendiente",
-    descripcion: "lorem",
-  },
-  {
-    id: 7,
-    fecha: "22/08/2022",
-    tipo: "Reclamo",
-    estado: "Rechazado",
-    descripcion: "lorem",
-  },
-  {
-    id: 8,
-    fecha: "22/08/2022",
-    tipo: "Queja",
-    estado: "Rechazado",
-    descripcion: "lorem",
-  },
-  {
-    id: 9,
-    fecha: "22/08/2022",
-    tipo: "Reclamo",
-    estado: "Finalizado",
-    descripcion: "lorem",
-  },
-  {
-    id: 10,
-    fecha: "22/08/2022",
-    tipo: "Reclamo",
-    estado: "Pendiente",
-    descripcion: "lorem",
-  },
-];
-
-export default function StylingHeaderGrid() {
+export default function StylingHeaderGrid({ data, textModal }) {
+  // PARA OPTENER DATOS
+  const rows = data;
+  // CABECERA DE LOS DATOS EDIT
+  const columns = [
+    {
+      field: "id",
+      headerName: "ID",
+      align: "center",
+      headerAlign: "center",
+      width: 70,
+      hideable: false,
+    },
+    {
+      field: "type",
+      headerName: "Tipo",
+      type: "boolean",
+      align: "center",
+      headerAlign: "center",
+      minWidth: 200,
+      renderCell: (value) => {
+        return value?.row?.type ? "Reclamo" : "Queja";
+      },
+    },
+    {
+      field: "date",
+      headerName: "Fecha",
+      type: "date",
+      align: "center",
+      headerAlign: "center",
+      minWidth: 200,
+    },
+    {
+      field: "state",
+      headerName: "Estado",
+      align: "center",
+      headerAlign: "center",
+      minWidth: 200,
+      type: "singleSelect",
+      renderCell: (value) => {
+        const number = value?.row?.state;
+        if (number === 1) {
+          return <p className="badge text-bg-secondary">Pendiente</p>;
+        }
+        if (number === 2) {
+          return <p className="badge text-bg-success">Resuelto</p>;
+        }
+        if (number === 3) {
+          return <p className="badge text-bg-danger">Rechazado</p>;
+        }
+      },
+      valueOptions: [1, 2, 3],
+    },
+    {
+      field: "details",
+      headerName: "Detalles",
+      headerAlign: "center",
+      align: "center",
+      sortable: false,
+      minWidth: 200,
+      filterable: false,
+      renderCell: (value) => {
+        return (
+          <button
+            type="button"
+            className="btn btn-outline-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModalScrollable"
+            onClick={() => textModal(value?.row?.details)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              className="bi bi-eye-fill"
+              viewBox="0 0 16 16"
+            >
+              <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+              <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+            </svg>
+          </button>
+        );
+      },
+    },
+  ];
   const [pageSize, setPageSize] = React.useState(5);
   return (
     <Box
       sx={{
-        height: 408,
+        height: 410,
         width: "100%",
       }}
     >
@@ -137,7 +106,6 @@ export default function StylingHeaderGrid() {
           components={{
             Toolbar: GridToolbar,
           }}
-          sx={{ my: 5 }}
           rows={rows}
           columns={columns}
           pageSize={pageSize}
@@ -145,6 +113,7 @@ export default function StylingHeaderGrid() {
           rowsPerPageOptions={[5, 10, 20]}
           pagination
         />
+        {/* TODO: https://mui.com/x/react-data-grid/column-visibility/ */}
       </ThemeProvider>
     </Box>
   );

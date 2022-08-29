@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../../Components/Card/Card";
 import Table1 from "../../Components/UserTables/Table1";
+import data from "../../data/data.json";
+import ModalDetails from "../../Components/ModalDetails/ModalDetails";
 
 const PrincipalUser = () => {
+  const [detaisModal, setDetaisModal] = useState("");
+  // reclamos
+  const numReclamos = () => {
+    return data.filter((value) => value.type).length;
+  };
+  // quejas
+  const numQuejas = () => {
+    return data.filter((value) => !value.type).length;
+  };
   return (
     <>
       <h1 className="mt-4">INFORMACIÓN GENERAL</h1>
@@ -15,7 +26,7 @@ const PrincipalUser = () => {
         <div className="row">
           <Card
             title="Tus reclamos"
-            cant={12}
+            cant={numReclamos()}
             details={"Total de reclamos"}
             icon={
               <svg
@@ -33,7 +44,7 @@ const PrincipalUser = () => {
           />
           <Card
             title="Tus quejas"
-            cant={12}
+            cant={numQuejas()}
             details={"Total de quejas"}
             icon={
               <svg
@@ -52,8 +63,10 @@ const PrincipalUser = () => {
         </div>
       </div>
       <div className="d-grid">
-        <Table1 />
+        <Table1 data={data} textModal={setDetaisModal} />
       </div>
+      {/* modal */}
+      <ModalDetails details={detaisModal} />
     </>
   );
 };
