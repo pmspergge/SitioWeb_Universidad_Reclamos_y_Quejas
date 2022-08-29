@@ -1,4 +1,4 @@
-.container_page404{
+.container-notAuthorized {
   width: 100%;
   height: 100vh;
 
@@ -7,35 +7,6 @@
   align-items: center;
   flex-direction: column;
 }
-.link_return{
-  color: white;
-  background-color: #f72585;
-  font-size: clamp(10px, 4vw, 15px);
-  border-radius: 5px;
-  padding: 1vh 5vw;
-  text-decoration: none;
-  transition: 0.3s ease-in-out;
+.container-notAuthorized h2{
+  font-size: 14px;
 }
-.link_return:hover{
-  color: white;
-  background-color: #f72584de;
-}
-@media only screen and (max-width: 600px) {
-  .image_page404{
-    width: 45%;
-  }
-}
-
-@media only screen and (min-width: 600px) {
-  .image_page404{
-    width: 45%;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .image_page404{
-    width: 35%;
-  }
-}
-
-

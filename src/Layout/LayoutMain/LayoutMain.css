@@ -2,25 +2,38 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(130deg, #ad90c1 0%, rgb(3, 0, 84) 100%),
-    linear-gradient(130deg, #09007b 0%, rgba(15, 0, 66, 0) 30%),
-    linear-gradient(129.96deg, rgb(255, 47, 47) 10.43%, rgb(0, 4, 96) 92.78%),
+  background: linear-gradient(
+      125deg,
+      #00ff57 0%,
+      #010033 40%,
+      #460043 70%,
+      #f0ffc5 100%
+    ),
+    linear-gradient(55deg, #0014c9 0%, #410060 100%),
+    linear-gradient(300deg, #ffc700 0%, #001aff 100%),
     radial-gradient(
-      100% 246.94% at 100% 0%,
-      rgb(255, 255, 255) 0%,
-      rgba(37, 0, 66, 0.8) 100%
+      135% 215% at 115% 40%,
+      #393939 0%,
+      #393939 40%,
+      #849561 calc(40% + 1px),
+      #849561 60%,
+      #eed690 calc(60% + 1px),
+      #eed690 80%,
+      #ecefd8 calc(80% + 1px),
+      #ecefd8 100%
     ),
-    linear-gradient(121.18deg, rgb(20, 0, 255) 0.45%, rgb(27, 0, 62) 100%),
     linear-gradient(
-      154.03deg,
-      rgb(206, 0, 0) 0%,
-      rgba(255, 0, 60, 0.755) 74.04%
-    ),
-    linear-gradient(341.1deg, rgb(178, 91, 186) 7.52%, rgb(16, 0, 119) 77.98%),
-    linear-gradient(222.34deg, rgb(169, 0, 0) 12.99%, rgb(0, 255, 224) 87.21%),
-    linear-gradient(150.76deg, rgb(183, 213, 0) 15.35%, rgb(34, 0, 170) 89.57%);
-  background-blend-mode: overlay, normal, overlay, color-burn, screen, overlay,
-    difference, difference, normal;
+      125deg,
+      #282d4f 0%,
+      #282d4f 40%,
+      #23103a calc(40% + 1px),
+      #23103a 70%,
+      #a0204c calc(70% + 1px),
+      #a0204c 88%,
+      #ff6c00 calc(88% + 1px),
+      #ff6c00 100%
+    );
+  background-blend-mode: overlay, screen, overlay, overlay, normal;
 }
 
 .main {
