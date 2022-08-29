@@ -1,6 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Card from "../../Components/Card/Card";
+import Table3 from "../../Components/AdminTables/Table3";
+import ModalDetails from "../../Components/ModalDetails/ModalDetails";
+import ModalDelete from "../../Components/ModalDetails/ModalDelete";
+import data from "../../data/data.json";
 const QuejasAdmin = () => {
+  const [idTicket, setIdTicket] = useState(undefined);
+  const [reclamos, setReclamos] = useState([]);
+  const [cardData, setCardData] = useState({});
+  const [detaisModal, setDetaisModal] = useState("");
+  // reclamos
+  useEffect(() => {
+    const DATA = data.filter((value) => !value.type);
+    setReclamos(DATA);
+  }, []);
+  // valores de los card
+  useEffect(() => {
+    const DATA = {
+      rRecibidas: data.filter((value) => !value.type).length,
+    };
+    setCardData(DATA);
+  }, []);
+  const deleteTicket = () => {
+    const DATA = reclamos.filter((value) => value.id !== idTicket);
+    setReclamos(DATA);
+  };
   return (
     <>
       <div className="d-grid gap-1 my-3 bg-white p-4 rounded">
@@ -9,7 +33,7 @@ const QuejasAdmin = () => {
           <div className="row">
             <Card
               title="Quejas Recibidas"
-              cant={12}
+              cant={cardData.rRecibidas}
               details={"Total de quejas"}
               icon={
                 <svg
@@ -27,7 +51,16 @@ const QuejasAdmin = () => {
           </div>
         </div>
       </div>
-      <div className="d-grid gap-1 my-3 bg-white p-4 rounded">tabla</div>
+      <div className="d-grid gap-1 my-3 bg-white p-4 rounded">
+        <Table3
+          data={reclamos}
+          textModal={setDetaisModal}
+          idButton={setIdTicket}
+        />
+      </div>
+      {/* modal */}
+      <ModalDetails details={detaisModal} />
+      <ModalDelete functionDelete={deleteTicket} />
     </>
   );
 };

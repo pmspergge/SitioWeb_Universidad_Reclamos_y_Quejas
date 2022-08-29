@@ -19,7 +19,6 @@ import PrincipalAdmin from "../ViewsLogged/ViewsAdmin/PrincipalAdmin";
 import QuejasUser from "../ViewsLogged/ViewsUser/QuejasUser";
 import ReclamosUser from "../ViewsLogged/ViewsUser/ReclamosUser";
 
-import useAuth from "../hooks/useAuth";
 function Router() {
   return (
     <Routes>

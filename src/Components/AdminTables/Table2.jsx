@@ -88,6 +88,7 @@ export default function StylingHeaderGrid({ data, textModal }) {
         }
       },
       valueOptions: [1, 2, 3],
+      editable: true,
     },
     {
       field: "details",

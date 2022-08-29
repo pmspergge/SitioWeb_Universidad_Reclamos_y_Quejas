@@ -5,7 +5,9 @@ import useLogout from "../../../hooks/useLogout";
 import "../styleLayout.css";
 import "./LayoutAdmin.css";
 import { Outlet } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 const LayoutAdmin = () => {
+  const { auth } = useAuth();
   const [buttonToggle, setButtonToggle] = useState(false);
   const logout = useLogout();
 
@@ -122,7 +124,7 @@ const LayoutAdmin = () => {
             </div>
             <div className="sb-sidenav-footer container-user-admin-footer">
               <div className="small">Administrador:</div>
-              Patrick Rios
+              {auth.user}
             </div>
           </nav>
         </div>
