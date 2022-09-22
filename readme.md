@@ -10,15 +10,15 @@ This project is built with React using <a href="https://vitejs.dev/">Vite</a>
 <h1 align="center">
   Project Images 
 </h1>
-<h3>Main Image</h3>
+<h2>Main Image</h2>
 <p align="center">
     <img src="./src/images/imagen_readme.png" alt="Imagen"/>
 </p>
-<h3>Login</h3>
+<h2>Login</h2>
 <p align="center">
     <img src="./src/images/image_readme_login.png" alt="Imagen-login"/>
 </p>
-<h3>Admin Dashboard</h3>
+<h2>Admin Dashboard</h2>
 <p align="center">
     <img src="./src/images/image_readme_admin_dashboard.png" alt="Imagen-dashborad-admin"/>
 </p>
@@ -31,7 +31,7 @@ This project is built with React using <a href="https://vitejs.dev/">Vite</a>
 <p align="center">
     <img src="./src/images/image_readme_admin_dashboard_4.png" alt="Imagen-dashborad-admin-4"/>
 </p>
-<h3>Users Dashboard</h3>
+<h2>Users Dashboard</h2>
 <p align="center">
     <img src="./src/images/image_readme_user_dashboard.png" alt="Imagen-dashborad-user"/>
 </p>
@@ -41,7 +41,7 @@ This project is built with React using <a href="https://vitejs.dev/">Vite</a>
 <p align="center">
     <img src="./src/images/image_readme_user_dashboard_3.png" alt="Imagen-dashborad-admin-3"/>
 </p>
-<h3>Responsive</h3>
+<h2>Responsive</h2>
 <p align="center">
     <img src="./src/images/reponsive_login.png" alt="Imagen-responsive-login"/>
 </p>
