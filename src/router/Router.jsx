@@ -28,6 +28,7 @@ function Router() {
         <Route path="form" element={<Form />}></Route>
       </Route>
       <Route path="*" element={<Page_404 />}></Route>
+      {/* Protected Routes */}
       {/* user */}
       <Route element={<PersistLogin />}>
         <Route element={<RequireAuth allowedRoles={[ROLES.User.clave]} />}>

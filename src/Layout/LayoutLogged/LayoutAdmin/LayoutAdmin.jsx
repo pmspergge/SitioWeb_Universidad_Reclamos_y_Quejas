@@ -124,7 +124,7 @@ const LayoutAdmin = () => {
             </div>
             <div className="sb-sidenav-footer container-user-admin-footer">
               <div className="small">Administrador:</div>
-              {auth.user}
+              {auth.user || "Admin"}
             </div>
           </nav>
         </div>

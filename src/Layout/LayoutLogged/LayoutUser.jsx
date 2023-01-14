@@ -129,7 +129,7 @@ const LayoutUser = () => {
             </div>
             <div className="sb-sidenav-footer">
               <div className="small">Usuario:</div>
-              {auth.user}
+              {auth.user || "user"}
             </div>
           </nav>
         </div>

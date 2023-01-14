@@ -53,7 +53,7 @@ export default function Login() {
 
       navigate(searchRoles(roles), { replace: true });
     } catch (err) {
-      console.log(err)
+      console.log(err);
       if (!err?.response) {
         setErrMsg("Sin respuesta del servidor");
       } else if (err.response?.status === 401) {
@@ -111,6 +111,10 @@ export default function Login() {
           </div>
           <div className="container-form-button-send">
             <button type="submit">Ingresar</button>
+          </div>
+          <div>
+            <p>-Usuario: user@gmail.com USERuser123!</p>
+            <p>-Administrador: admin@gmail.com ADMINadmin123!</p>
           </div>
           {preloader && <Preloader></Preloader>}
         </div>
